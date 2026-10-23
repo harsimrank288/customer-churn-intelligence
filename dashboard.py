@@ -5,7 +5,13 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 import json
-API_URL = "http://127.0.0.1:8000"
+import os
+
+API_URL = os.getenv(
+    "API_URL",
+    "http://127.0.0.1:8000"
+).rstrip("/")
+
 
 # Page configuration
 page = st.sidebar.radio(
@@ -18,7 +24,7 @@ page = st.sidebar.radio(
     ]
 )
 
-API_URL = "http://127.0.0.1:8000"
+
 # Load the original dataset
 BASE_DIR = Path(__file__).resolve().parent
 DATA_PATH = BASE_DIR / "data" / "Telco-Customer-Churn.csv"
