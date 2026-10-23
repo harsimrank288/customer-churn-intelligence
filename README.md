@@ -47,6 +47,7 @@ The prediction interface estimates customer churn probability, identifies the ri
 ![Customer Churn Prediction](screenshots/churn_prediction.png)
 
 
+
 ## Technologies Used
 
 | Technology           | Purpose                                                 |
@@ -152,15 +153,17 @@ The test results are exploratory because the test set was used during model comp
 ## Project Structure
 
 ```text
+
 customer-churn-intelligence/
 ├── data/
-│   ├── Telco-Customer-Churn.csv
 │   └── README.md
 ├── models/
 │   └── balanced_logistic_regression.joblib
 ├── notebooks/
 │   └── 01_eda.ipynb
-├── src/
+├── screenshots/
+│   ├── dashboard_overview.png
+│   └── churn_prediction.png
 ├── tests/
 │   ├── test_api.py
 │   └── test_database.py
@@ -168,8 +171,9 @@ customer-churn-intelligence/
 ├── dashboard.py
 ├── database.py
 ├── requirements.txt
-├── .gitignore
-└── README.md
+├── README.md
+└── .gitignore
+
 ```
 
 ## Installation and Setup
@@ -181,7 +185,6 @@ git clone https://github.com/harsimrank288/customer-churn-intelligence.git
 cd customer-churn-intelligence
 ```
 
-Replace `<YOUR_GITHUB_REPOSITORY_URL>` with your actual repository URL.
 
 ### 2. Create a virtual environment
 
