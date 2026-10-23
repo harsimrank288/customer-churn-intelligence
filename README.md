@@ -32,6 +32,21 @@ This project uses the Telco Customer Churn dataset to:
 * Automated API and database tests
 * CSV export of prediction history
 
+## 📸 Application Screenshots
+
+### 1. Dashboard Overview
+
+The dashboard provides an overview of the Customer Churn Prediction & Retention Intelligence System and its main capabilities.
+
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+### 2. Customer Churn Prediction
+
+The prediction interface estimates customer churn probability, identifies the risk level, and provides retention recommendations based on the model's prediction.
+
+![Customer Churn Prediction](screenshots/churn_prediction.png)
+
+
 ## Technologies Used
 
 | Technology           | Purpose                                                 |
@@ -162,7 +177,7 @@ customer-churn-intelligence/
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/harsimrank288/customer-churn-intelligence.git
 cd customer-churn-intelligence
 ```
 
@@ -278,4 +293,6 @@ Through this project, I practiced:
 BCA — Artificial Intelligence and Data Science
 
 GitHub: [harsimrank288](https://github.com/harsimrank288)
+
+Project Repository: [Customer Churn Prediction & Retention Intelligence System](https://github.com/harsimrank288/customer-churn-intelligence)
 
