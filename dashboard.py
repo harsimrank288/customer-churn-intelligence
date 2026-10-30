@@ -7,13 +7,16 @@ from pathlib import Path
 import json
 import os
 
-API_URL = os.getenv(
-    "API_URL",
-    st.secrets.get(
-        "API_URL",
-        "http://127.0.0.1:8000"
-    )
-).rstrip("/")
+# Configure API URL
+API_URL = os.getenv("API_URL")
+
+if not API_URL:
+    try:
+        API_URL = st.secrets["API_URL"]
+    except Exception:
+        API_URL = "http://127.0.0.1:8000"
+
+API_URL = API_URL.rstrip("/")
 
 
 # Page configuration
@@ -28,13 +31,18 @@ page = st.sidebar.radio(
 )
 
 
-# Load the original dataset
-BASE_DIR = Path(__file__).resolve().parent
-DATA_PATH = BASE_DIR / "data" / "Telco-Customer-Churn.csv"
+# Load dataset from Hugging Face
+
+DATA_URL = (
+    "https://huggingface.co/datasets/"
+    "harsimrank288/customer-churn-data/"
+    "resolve/main/Telco-Customer-Churn.csv"
+)
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv(DATA_PATH)
+
+    df = pd.read_csv(DATA_URL)
 
     # Convert TotalCharges to numeric
     df["TotalCharges"] = pd.to_numeric(
@@ -44,17 +52,13 @@ def load_data():
 
     return df
 
+
 try:
     df = load_data()
-except FileNotFoundError:
-    df = None
-    st.error(f"Dataset not found at: {DATA_PATH}")
 
-st.title("📊 Customer Churn Prediction & Retention Intelligence")
-st.write(
-    "Predict customer churn risk using Machine Learning "
-    "and explore customer retention insights."
-)
+except Exception as error:
+    df = None
+    st.error(f"Could not load dataset: {error}")
 
 
 
