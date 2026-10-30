@@ -257,6 +257,42 @@ Accepts customer information and sends it to the FastAPI backend to obtain a pre
 
 Displays previous predictions stored in SQLite and allows the history to be exported as a CSV file.
 
+## Deployment
+
+The application is deployed using the following services:
+
+| Component             | Hosting Platform          |
+| --------------------- | ------------------------- |
+| Machine Learning API  | Render                    |
+| Interactive Dashboard | Streamlit Community Cloud |
+| Dataset Hosting       | Hugging Face              |
+| Prediction History    | SQLite                    |
+
+### Live API
+
+The FastAPI backend is deployed on Render:
+
+https://customer-churn-api-6vjb.onrender.com
+
+API health check:
+
+https://customer-churn-api-6vjb.onrender.com/health
+
+Interactive API documentation:
+
+https://customer-churn-api-6vjb.onrender.com/docs
+
+### Database and Storage
+
+The application uses SQLite to store customer prediction history.
+
+SQLite provides lightweight database functionality without requiring a separate database server or paid database hosting.
+
+**Deployment limitation:** The SQLite database is stored on the Render service's filesystem. The filesystem may be temporary, so prediction history can be lost when the service restarts, redeploys, or its filesystem is replaced.
+
+The current database implementation is intended for demonstration and portfolio purposes rather than guaranteed long-term data persistence.
+
+
 ## Limitations
 
 * Predictions depend on the quality and representativeness of the historical dataset.
